@@ -1,0 +1,233 @@
+/* 3D Effects and Advanced Transitions */
+
+/* 3D Tilt Effect for Profile Image */
+.tilt-effect {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s ease;
+}
+
+.tilt-effect:hover {
+  transform: rotateY(10deg) rotateX(5deg);
+  box-shadow: 
+    -20px 20px 30px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(var(--primary-color-rgb), 0.3);
+}
+
+/* 3D Button Effects */
+.btn {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+/* 3D Card Effects */
+.project-card, .skill-item, .stat-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.project-card:hover, .skill-item:hover, .stat-item:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Parallax Scrolling Effect */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 10% 20%, rgba(var(--primary-color-rgb), 0.1) 0%, transparent 80%),
+                    radial-gradient(circle at 90% 80%, rgba(var(--secondary-color-rgb), 0.1) 0%, transparent 80%);
+  transform: translateZ(-10px) scale(2);
+  z-index: -1;
+}
+
+/* Text Reveal Animation */
+.reveal-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  transform: translateX(-100%);
+  animation: reveal 1s ease forwards;
+}
+
+@keyframes reveal {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Glowing Border Effect */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 3D Text Effect */
+.hero-content h1 {
+  text-shadow: 
+    1px 1px 0 rgba(0, 0, 0, 0.1),
+    2px 2px 0 rgba(0, 0, 0, 0.05),
+    3px 3px 0 rgba(0, 0, 0, 0.025);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.hero-content h1:hover {
+  transform: translateY(-5px);
+  text-shadow: 
+    2px 2px 0 rgba(0, 0, 0, 0.1),
+    4px 4px 0 rgba(0, 0, 0, 0.05),
+    6px 6px 0 rgba(0, 0, 0, 0.025);
+}
+
+/* Smooth Page Transitions */
+.page-transition {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating Elements */
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Staggered Animation for Lists */
+.staggered-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.staggered-item.animate {
+  animation: staggerFadeIn 0.5s ease forwards;
+}
+
+@keyframes staggerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 4. Ensure Your Image File is in the Correct Location
+
+Make sure your image file is in the correct location:
+- Create a folder named `images` in your project root directory if it doesn't exist
+- Place your `photo.webp` file in this folder
+
+## 5. Additional Styling for Better Visual Appeal
+
+You can also add these styles to your 3D-effects.css file to enhance the profile image:
+```css
+/* Enhanced Profile Image Effects */
+.profile-image-container.tilt-effect {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.profile-image-container.tilt-effect:hover {
+  transform: rotateY(10deg) rotateX(5deg);
+  box-shadow: 
+    -20px 20px 30px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(var(--primary-color-rgb), 0.3);
+}
+
+.profile-image-container::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, rgba(var(--primary-color-rgb), 0.1), transparent);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-image-container:hover::after {
+  opacity: 1;
+}
